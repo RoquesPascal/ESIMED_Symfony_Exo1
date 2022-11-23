@@ -33,9 +33,9 @@
                 <td>{{ vol.getTime() }}</td>
                 <td>{{ vol.getComment() }}</td>
                 <td>
-                    <a href="show/{{ vol.getId() }}"><button>Voir</button></a>
+                    <a href="/show/{{ vol.getId() }}"><button>Voir</button></a>
                     <a href=""><button>Modifier (pas encore focntionnel)</button></a>
-                    <a href="delete/{{ vol.getId() }}"><button>Supprimer</button></a>
+                    <a href="/delete/{{ vol.getId() }}"><button>Supprimer</button></a>
                 </td>
             </tr>
         {% endfor %}
