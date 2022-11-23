@@ -34,16 +34,8 @@
                 <td>{{ vol.getComment() }}</td>
                 <td>
                     <a href="show/{{ vol.getId() }}"><button>Voir</button></a>
-                    <form action="index.php" method="post">
-                        <input type="hidden" name="view" value="editDisplay" />
-                        <input type="hidden" name="id" value="'.$vol['id'].'" />
-                        <input type="submit" value="Modifier">
-                    </form>
-                    <form action="index.php" method="post">
-                        <input type="hidden" name="view" value="delete" />
-                        <input type="hidden" name="id" value="'.$vol['id'].'" />
-                        <input type="submit" value="Supprimer">
-                    </form>
+                    <a href=""><button>Modifier (pas encore focntionnel)</button></a>
+                    <a href="delete/{{ vol.getId() }}"><button>Supprimer</button></a>
                 </td>
             </tr>
         {% endfor %}

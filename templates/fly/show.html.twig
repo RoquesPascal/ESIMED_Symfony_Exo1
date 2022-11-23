@@ -29,16 +29,8 @@
             <td>{{ vol.getTime() }}</td>
             <td>{{ vol.getComment() }}</td>
             <td>
-                <form action="index.php" method="post">
-                    <input type="hidden" name="view" value="editDisplay" />
-                    <input type="hidden" name="id" value="<?php echo $id ?>" />
-                    <input type="submit" value="Modifier">
-                </form>
-                <form action="index.php" method="post">
-                    <input type="hidden" name="view" value="delete" />
-                    <input type="hidden" name="id" value="<?php echo $id ?>" />
-                    <input type="submit" value="Supprimer">
-                </form>
+                <a href=""><button>Modifier (pas encore focntionnel)</button></a>
+                <a href="delete/{{ vol.getId() }}"><button>Supprimer</button></a>
             </td>
         </tr>
     </table>

@@ -14,7 +14,6 @@ class FlyController extends AbstractController
     public function index(FlyRepository $flyRepository): Response
     {
         $listeVols = $flyRepository->findAll();
-
         return $this->render('fly/index.html.twig', [
             'listeVols' => $listeVols,
         ]);
@@ -24,9 +23,18 @@ class FlyController extends AbstractController
     public function show(FlyRepository $flyRepository, Request $request): Response
     {
         $vol = $flyRepository->find($request->attributes->get('id'));
-
         return $this->render('fly/show.html.twig', [
             'vol' => $vol,
         ]);
+    }
+
+    #[Route('/delete/{id}', name: 'delete')]
+    public function delete(FlyRepository $flyRepository, Request $request): Response
+    {
+        $vol = $flyRepository->find($request->attributes->get('id'));
+        if($vol)
+            $flyRepository->remove($vol, true);
+
+        return $this->redirectToRoute('index');
     }
 }
