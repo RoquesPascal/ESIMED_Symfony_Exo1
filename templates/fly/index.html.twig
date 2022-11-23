@@ -33,11 +33,7 @@
                 <td>{{ vol.getTime() }}</td>
                 <td>{{ vol.getComment() }}</td>
                 <td>
-                    <form action="index.php" method="post">
-                        <input type="hidden" name="view" value="show" />
-                        <input type="hidden" name="id" value="'.$vol['id'].'" />
-                        <input type="submit" value="Voir">
-                    </form>
+                    <a href="show/{{ vol.getId() }}"><button>Voir</button></a>
                     <form action="index.php" method="post">
                         <input type="hidden" name="view" value="editDisplay" />
                         <input type="hidden" name="id" value="'.$vol['id'].'" />

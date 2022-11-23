@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Menu principal{% endblock %}
+
+{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="../../content/style/style.css"/>
+{% endblock %}
+
+{% block body %}
+    <a href="/"><button>menu principal</button></a>
+
+    <table>
+        <tr>
+            <th>id</th>
+            <th>date</th>
+            <th>location</th>
+            <th>from</th>
+            <th>to</th>
+            <th>time</th>
+            <th>comment</th>
+            <th>Modifier / Supprimer</th>
+        </tr>
+        <tr>
+            <td>{{ vol.getId() }}</td>
+            <td>{{ vol.date|date("m/d/Y") }}</td>
+            <td>{{ vol.getLocation() }}</td>
+            <td>{{ vol.getAltitudeFrom() }}</td>
+            <td>{{ vol.getAltitudeTo() }}</td>
+            <td>{{ vol.getTime() }}</td>
+            <td>{{ vol.getComment() }}</td>
+            <td>
+                <form action="index.php" method="post">
+                    <input type="hidden" name="view" value="editDisplay" />
+                    <input type="hidden" name="id" value="<?php echo $id ?>" />
+                    <input type="submit" value="Modifier">
+                </form>
+                <form action="index.php" method="post">
+                    <input type="hidden" name="view" value="delete" />
+                    <input type="hidden" name="id" value="<?php echo $id ?>" />
+                    <input type="submit" value="Supprimer">
+                </form>
+            </td>
+        </tr>
+    </table>
+{% endblock %}
