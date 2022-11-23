@@ -1,0 +1,25 @@
+table
+{
+    border-collapse : collapse;
+    border-spacing  : 0;
+    margin          : auto;
+}
+
+table tr:nth-child(odd) /* Mettre 1 ligne sur 2 d'une autre couleur */
+{
+    background-color : #f0f0f0;
+}
+
+td, th
+{
+    border  : 1px solid black;
+    padding : 10px;
+}
+
+th
+{
+    background-color : #6E6E6E;
+    color       : white;
+    font-size   : 25px;
+    font-weight : bold;
+}

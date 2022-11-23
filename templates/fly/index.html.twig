@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FlyController!{% endblock %}
+
+{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="../../content/style/style.css"/>
+{% endblock %}
+
+{% block body %}
+    <form action="index.php" method="post">
+        <input type="hidden" name="view" value="addDisplay" />
+        <input type="submit" value="Ajouter un saut">
+    </form>
+
+    <table>
+        <tr>
+            <th>id</th>
+            <th>date</th>
+            <th>location</th>
+            <th>from</th>
+            <th>to</th>
+            <th>time</th>
+            <th>comment</th>
+            <th>Voir / Modifier / Supprimer</th>
+        </tr>
+        {% for vol in listeVols %}
+            <tr>
+                <td>{{ vol.getId() }}</td>
+                <td>{{ vol.date|date("m/d/Y") }}</td>
+                <td>{{ vol.getLocation() }}</td>
+                <td>{{ vol.getAltitudeFrom() }}</td>
+                <td>{{ vol.getAltitudeTo() }}</td>
+                <td>{{ vol.getTime() }}</td>
+                <td>{{ vol.getComment() }}</td>
+                <td>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="view" value="show" />
+                        <input type="hidden" name="id" value="'.$vol['id'].'" />
+                        <input type="submit" value="Voir">
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="view" value="editDisplay" />
+                        <input type="hidden" name="id" value="'.$vol['id'].'" />
+                        <input type="submit" value="Modifier">
+                    </form>
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="view" value="delete" />
+                        <input type="hidden" name="id" value="'.$vol['id'].'" />
+                        <input type="submit" value="Supprimer">
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
