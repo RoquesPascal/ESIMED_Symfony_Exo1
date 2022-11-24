@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Menu principal{% endblock %}
+{% block title %}Visualisation{% endblock %}
 
 {% block stylesheets %}
     <link type="text/css" rel="stylesheet" href="../../content/style/style.css"/>
 {% endblock %}
 
 {% block body %}
-    <a href="/"><button>menu principal</button></a>
+    <a href="/"><button>Menu principal</button></a>
 
     <table>
         <tr>
@@ -29,7 +29,7 @@
             <td>{{ vol.getTime() }}</td>
             <td>{{ vol.getComment() }}</td>
             <td>
-                <a href=""><button>Modifier (pas encore focntionnel)</button></a>
+                <a href="/edit/{{ vol.getId() }}"><button>Modifier</button></a>
                 <a href="/delete/{{ vol.getId() }}"><button>Supprimer</button></a>
             </td>
         </tr>

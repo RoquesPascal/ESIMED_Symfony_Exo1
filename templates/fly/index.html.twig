@@ -7,10 +7,7 @@
 {% endblock %}
 
 {% block body %}
-    <form action="index.php" method="post">
-        <input type="hidden" name="view" value="addDisplay" />
-        <input type="submit" value="Ajouter un saut">
-    </form>
+    <a href="/add"><button>Ajouter un saut</button></a>
 
     <table>
         <tr>
@@ -34,7 +31,7 @@
                 <td>{{ vol.getComment() }}</td>
                 <td>
                     <a href="/show/{{ vol.getId() }}"><button>Voir</button></a>
-                    <a href=""><button>Modifier (pas encore focntionnel)</button></a>
+                    <a href="/edit/{{ vol.getId() }}"><button>Modifier</button></a>
                     <a href="/delete/{{ vol.getId() }}"><button>Supprimer</button></a>
                 </td>
             </tr>

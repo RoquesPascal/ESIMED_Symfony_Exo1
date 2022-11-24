@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if(ajout) %}
+        Ajout
+    {% else %}
+        Edition
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="../../content/style/style.css"/>
+{% endblock %}
+
+{% block body %}
+    <a href="/"><button>Menu principal</button></a>
+
+    {{ form_start(form) }}
+        {{ form_label(form.location) }}
+        {{ form_widget(form.location) }}
+        <br/>
+
+        {{ form_label(form.date) }}
+        {{ form_widget(form.date) }}
+        <br/>
+
+        {{ form_label(form.altitude_from) }}
+        {{ form_widget(form.altitude_from) }}
+        <br/>
+
+        {{ form_label(form.altitude_to) }}
+        {{ form_widget(form.altitude_to) }}
+        <br/>
+
+        {{ form_label(form.time) }}
+        {{ form_widget(form.time) }}
+        <br/>
+
+        {{ form_label(form.comment) }}
+        {{ form_widget(form.comment) }}
+        <br/>
+
+        {{ form_rest(form) }}
+        <button type="submit">
+            {% if(ajout) %}
+                Ajouter
+            {% else %}
+                Enregistrer
+            {% endif %}
+        </button>
+    {{ form_end(form) }}
+{% endblock %}
